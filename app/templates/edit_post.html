@@ -1,0 +1,50 @@
+
+{% extends "base.html" %}
+
+{% block title %}Edit Post - MyBlog{% endblock %}
+
+{% block content %}
+
+<h1>Edit Blog Post</h1>
+
+<div class="post-card">
+
+    <form method="POST">
+
+        <label>Post Title:</label>
+
+        <input
+            type="text"
+            name="title"
+            value="{{ post.title }}"
+            required
+        >
+
+        <label>Post Content:</label>
+
+        <textarea name="content" rows="8" required>{{ post.content }}</textarea>
+
+        <label>Select Category:</label>
+
+        <select name="category_id" required>
+
+            <option value="">-- Select Category --</option>
+
+            {% for category in categories %}
+
+                <option value="{{ category.id }}"
+                    {% if post.category_id == category.id %}selected{% endif %}>
+                    {{ category.name }}
+                </option>
+
+            {% endfor %}
+
+        </select>
+
+        <button type="submit">Update Post</button>
+
+    </form>
+
+</div>
+
+{% endblock %}

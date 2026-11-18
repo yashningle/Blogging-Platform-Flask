@@ -1,0 +1,45 @@
+
+{% extends "base.html" %}
+
+{% block title %}Create Post - MyBlog{% endblock %}
+
+{% block content %}
+
+<h1>Create New Blog Post</h1>
+
+<div class="post-card">
+
+    <form method="POST">
+
+        {{ form.hidden_tag() }}
+
+        <label>{{ form.title.label }}</label>
+        {{ form.title(placeholder="Enter post title") }}
+
+        {% for error in form.title.errors %}
+            <p style="color:red;">{{ error }}</p>
+        {% endfor %}
+
+        <label>{{ form.content.label }}</label>
+        {{ form.content(rows=8, placeholder="Write your blog content") }}
+
+        {% for error in form.content.errors %}
+            <p style="color:red;">{{ error }}</p>
+        {% endfor %}
+
+        <label>{{ form.category_id.label }}</label>
+        {{ form.category_id() }}
+
+        {% for error in form.category_id.errors %}
+            <p style="color:red;">{{ error }}</p>
+        {% endfor %}
+
+        <br>
+
+        {{ form.submit() }}
+
+    </form>
+
+</div>
+
+{% endblock %}

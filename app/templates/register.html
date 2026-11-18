@@ -1,0 +1,48 @@
+
+{% extends "base.html" %}
+
+{% block title %}Register - MyBlog{% endblock %}
+
+{% block content %}
+
+<h1>Create Account</h1>
+
+<div class="post-card">
+
+    <form method="POST">
+
+        <label>Username:</label>
+        <input
+            type="text"
+            name="username"
+            placeholder="Enter username"
+            required
+        >
+
+        <label>Email:</label>
+        <input
+            type="email"
+            name="email"
+            placeholder="Enter email"
+            required
+        >
+
+        <label>Password:</label>
+        <input
+            type="password"
+            name="password"
+            placeholder="Enter password"
+            required
+        >
+
+        <button type="submit">Register</button>
+
+    </form>
+
+    <p>Already have an account?
+        <a href="{{ url_for('main.login') }}">Login here</a>
+    </p>
+
+</div>
+
+{% endblock %}
